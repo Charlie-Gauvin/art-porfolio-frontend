@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
+import Footer from "../components/Footer";
 
 const antonio = localFont({
   src: [
@@ -92,6 +93,7 @@ export default function RootLayout({
     <html lang="fr">
       <body className={`${antonio.variable} ${inter.variable} antialiased`}>
         {children}
+        <Footer />
       </body>
     </html>
   );
