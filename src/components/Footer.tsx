@@ -32,16 +32,18 @@ const Footer = () => {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Visitez mon Instagram"
+              className="transition-transform hover:scale-110"
             >
-              <Image src={Insta} alt="Instagram" width={24} height={24} />
+              <Image src={Insta} alt="Instagram" className="size-6" />
             </a>
             <a
               href="https://facebook.com"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Visitez mon Facebook"
+              className="transition-transform hover:scale-110"
             >
-              <Image src={Facebook} alt="Facebook" width={24} height={24} />
+              <Image src={Facebook} alt="Facebook" className="size-6" />
             </a>
           </div>
         </div>
