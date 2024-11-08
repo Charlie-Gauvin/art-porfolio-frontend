@@ -1,3 +1,4 @@
+import Header from "../components/Header";
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
@@ -91,7 +92,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="fr">
-      <body className={`${antonio.variable} ${inter.variable} antialiased`}>
+      <body
+        className={`${antonio.variable} ${inter.variable} antialiased`}
+      >
+        <Header />
         {children}
         <Footer />
       </body>
