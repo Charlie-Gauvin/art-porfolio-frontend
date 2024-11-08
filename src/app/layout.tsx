@@ -2,6 +2,7 @@ import Header from "../components/Header";
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
+import Footer from "../components/Footer";
 
 const antonio = localFont({
   src: [
@@ -96,6 +97,7 @@ export default function RootLayout({
       >
         <Header />
         {children}
+        <Footer />
       </body>
     </html>
   );
