@@ -31,10 +31,10 @@ export default function Burger() {
         onClick={handleMenu}
         aria-label={isMenuOpen ? "Fermer le menu" : "Ouvrir le menu"}
       >
-        <Image src={isMenuOpen ? close : open} alt="Menu" className="z-50" />
+        <Image src={isMenuOpen ? close : open} alt="Menu" className="z-50 size-9" />
       </button>
       {isMenuOpen && (
-        <nav className="fixed inset-0  flex  items-center justify-center bg-background2 text-text2">
+        <nav className="fixed inset-0 flex items-center justify-center bg-background2 text-text2">
           <ul className="flex flex-col items-center space-y-6 text-4xl font-bold">
               <li>
                 <Link href="/" onClick={handleMenu}>Accueil</Link>

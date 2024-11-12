@@ -20,7 +20,7 @@ export default function Header() {
 
   return (
     <header
-      className="sticky top-0 flex w-full items-center justify-between  bg-background1 px-6 py-8 sm:px-12 lg:px-20"
+      className="fixed top-0 z-50 flex w-full items-center justify-between border-b-2  border-text1 bg-background1 px-6 py-8 sm:px-12 lg:px-20"
       role="banner"
     >
       <figure>
