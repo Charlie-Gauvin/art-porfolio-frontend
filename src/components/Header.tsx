@@ -52,10 +52,10 @@ export default function Header() {
             {isGalleryOpen && (
               <ul className="absolute left-0 top-full space-y-1 rounded-lg bg-background2 p-4 text-base text-text3">
                 <li>
-                  <Link href="#">Disponible</Link>
+                  <Link href="/gallery/available-works">Disponible</Link>
                 </li>
                 <li>
-                  <Link href="#">Archives</Link>
+                  <Link href="/gallery/sold-works">Archives</Link>
                 </li>
               </ul>
             )}
