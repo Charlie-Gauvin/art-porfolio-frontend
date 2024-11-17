@@ -52,7 +52,7 @@ const GalleryPage: React.FC<GalleryPageProps> = ({ title, apiEndpoint }) => {
 
       {/* Section des Cards */}
       <div className="grid gap-12 sm:grid-cols-1 ">
-        {works.map((work) => {
+        {works.map((work, index) => {
           // Accéder à l'URL de l'image si elle existe, sinon utiliser un placeholder
           const imageUrl = work.image?.url
             ? `${baseURL}${work.image.url}`
@@ -67,6 +67,7 @@ const GalleryPage: React.FC<GalleryPageProps> = ({ title, apiEndpoint }) => {
               price={work.price}
               description={work.description}
               artStatus={work.artStatus}
+              reverse={index % 2 === 1}
             />
           );
         })}

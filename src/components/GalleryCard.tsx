@@ -8,6 +8,7 @@ interface GalleryCardProps {
   artStatus: string;
   dimensions: string;
   price: number;
+  reverse?: boolean;
 }
 
 const GalleryCard: React.FC<GalleryCardProps> = ({
@@ -16,11 +17,20 @@ const GalleryCard: React.FC<GalleryCardProps> = ({
   imageSrc,
   dimensions,
   price,
+  reverse,
 }) => {
   return (
-    <div className="mb-8 grid min-h-[350px] grid-cols-12 overflow-hidden rounded-lg font-antonio text-text1 shadow-lg">
+    <div
+      className={`mb-8 grid min-h-[350px] grid-cols-12 overflow-hidden rounded-lg font-antonio text-text1 shadow-lg ${
+        reverse ? "lg:flex-row-reverse" : ""
+      }`}
+    >
       {/* Image de la toile */}
-      <div className="relative col-span-full h-full lg:col-span-4">
+      <div
+        className={`relative col-span-full h-full lg:col-span-4 ${
+          reverse ? "lg:order-last" : ""
+        }`}
+      >
         <Image
           src={imageSrc}
           alt={title}
