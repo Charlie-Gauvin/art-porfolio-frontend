@@ -9,7 +9,10 @@ export default function Home() {
   return (
     <div>
       <section className="flex h-screen items-center justify-center bg-background1 font-antonio text-text1">
-        <div className="flex flex-col items-center space-y-20 lg:flex-row lg:space-x-24 xl:space-x-56 2xl:space-x-80">
+        {/* ##########################
+        ## GARDER LE PB-40 ???? ##
+        ########################## */}
+        <div className="flex flex-col items-center space-y-20 pb-40 lg:flex-row lg:space-x-24 xl:space-x-56 2xl:space-x-80">
           <div className="flex flex-col items-start">
             <div className="flex items-center text-xs md:text-sm lg:text-lg">
               <h1 className="whitespace-nowrap">Patrick Gauvin</h1>
