@@ -8,7 +8,7 @@ const Footer = () => {
   return (
     <footer className="flex flex-col items-center justify-between bg-background2 px-10 py-6 font-antonio text-text2 md:flex-row md:px-20 md:py-8">
       {/* Logo */}
-      <div className="mb-4 w-48 ">
+      <div className="mb-4 flex w-48 justify-center ">
         <Image src={LogoPage} alt="Logo" />
       </div>
 
@@ -19,14 +19,14 @@ const Footer = () => {
       </div>
 
       {/* Contact et Réseaux Sociaux */}
-      <div className="text-left">
+      <div className="text-center sm:text-left">
         <div className="mb-6">
           <p className="font-semibold">Mon Email :</p>
           <p>blabla@gmail.com</p>
         </div>
         <div>
           <p className="mb-1 font-semibold">Mes réseaux :</p>
-          <div className="flex space-x-4">
+          <div className="flex justify-center space-x-4 sm:justify-start">
             <a
               href="https://instagram.com"
               target="_blank"

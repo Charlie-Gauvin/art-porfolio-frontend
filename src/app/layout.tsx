@@ -92,9 +92,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="fr">
-      <body
-        className={`${antonio.variable} ${inter.variable} antialiased`}
-      >
+      <body className={`${antonio.variable} ${inter.variable} antialiased`}>
         <Header />
         {children}
         <Footer />
