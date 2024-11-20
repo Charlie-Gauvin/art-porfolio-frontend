@@ -45,13 +45,13 @@ const GalleryPage: React.FC<GalleryPageProps> = ({ title, apiEndpoint }) => {
   const baseURL = process.env.NEXT_PUBLIC_API_BASE_URL;
 
   return (
-    <section className="min-h-screen bg-background1 py-12 ">
+    <section className=" min-h-screen bg-background1 py-12 ">
       <div className="mb-12 text-center">
-        <h2 className="mb-4 text-5xl font-bold text-text1">{title}</h2>
+        <h2 className="pb-12 text-5xl font-bold text-text1">{title}</h2>
       </div>
 
       {/* Section des Cards */}
-      <div className="grid gap-12 sm:grid-cols-1 ">
+      <div className="mx-4 grid gap-12 sm:grid-cols-1 md:mx-6 lg:mx-28 ">
         {works.map((work, index) => {
           // Accéder à l'URL de l'image si elle existe, sinon utiliser un placeholder
           const imageUrl = work.image?.url
