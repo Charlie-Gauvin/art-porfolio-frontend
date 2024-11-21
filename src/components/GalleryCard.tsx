@@ -81,7 +81,7 @@ const GalleryCard: React.FC<GalleryCardProps> = ({
             <Image
               src={imageSrc}
               alt={title}
-              layout="intrinsic"
+              layout="responsive"
               width={800}
               height={600}
               className="max-h-[70vh] rounded-lg object-contain"
@@ -89,7 +89,7 @@ const GalleryCard: React.FC<GalleryCardProps> = ({
 
             <button
               onClick={toggleLightbox}
-              className="absolute right-24 top-1 text-4xl text-white transition-colors hover:text-text3"
+              className="absolute right-36 top-1 text-4xl text-white transition-colors hover:text-text3"
               aria-label="Fermer la Lightbox"
             >
               &times;
