@@ -3,7 +3,7 @@ export default function ContactForm() {
     <section className="p-6 dark:text-gray-800">
       <form
         noValidate
-        className="container mx-auto w-full max-w-xl space-y-6 rounded-md p-8"
+        className="container mx-auto mb-16 w-full max-w-xl space-y-6 rounded-md p-8"
       >
         <div>
           <label htmlFor="name" className="mb-1 ml-1 block">
