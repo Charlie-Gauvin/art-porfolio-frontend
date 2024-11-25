@@ -4,6 +4,7 @@ import React, { useEffect, useState, useRef } from "react";
 import GalleryCard from "./GalleryCard";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
+import Image from "next/image";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -31,6 +32,8 @@ interface GalleryPageProps {
 
 const GalleryPage: React.FC<GalleryPageProps> = ({ title, apiEndpoint }) => {
   const [works, setWorks] = useState<Work[]>([]);
+  const [isLightboxOpen, setIsLightboxOpen] = useState<boolean>(false);
+  const [selectedImage, setSelectedImage] = useState<string>("");
   const cardsRef = useRef<HTMLDivElement[]>([]);
 
   useEffect(() => {
@@ -72,6 +75,16 @@ const GalleryPage: React.FC<GalleryPageProps> = ({ title, apiEndpoint }) => {
 
   const baseURL = process.env.NEXT_PUBLIC_API_BASE_URL;
 
+  const openLightbox = (imageUrl: string) => {
+    setSelectedImage(imageUrl);
+    setIsLightboxOpen(true);
+  };
+
+  const closeLightbox = () => {
+    setIsLightboxOpen(false);
+    setSelectedImage("");
+  };
+
   return (
     <section className="min-h-screen bg-background1 py-12">
       <div className="mb-12 text-center">
@@ -100,11 +113,49 @@ const GalleryPage: React.FC<GalleryPageProps> = ({ title, apiEndpoint }) => {
                 description={work.description}
                 artStatus={work.artStatus}
                 reverse={index % 2 === 1}
+                onImageClick={() => openLightbox(imageUrl)}
               />
             </div>
           );
         })}
       </div>
+      {/* Lightbox / Overlay */}
+      {isLightboxOpen && (
+        <div>
+          {/* Overlay sombre pour masquer l'arrière-plan */}
+          <div
+            className="fixed inset-0 z-40 bg-black/90"
+            onClick={closeLightbox}
+            aria-hidden="true"
+          ></div>
+          {/* Conteneur de la Lightbox */}
+          <div
+            className="fixed inset-0 z-50 flex items-center justify-center"
+            role="dialog"
+            aria-modal="true"
+          >
+            <div className="relative w-11/12 max-w-4xl overflow-hidden rounded-lg">
+              <Image
+                src={selectedImage}
+                alt="Artwork enlarged"
+                layout="responsive"
+                width={800}
+                height={600}
+                className="max-h-[70vh] rounded-lg object-contain"
+              />
+
+              {/* Bouton de fermeture de la Lightbox */}
+              <button
+                onClick={closeLightbox}
+                className="absolute right-0 top-0 text-5xl text-white transition-colors hover:text-text3  "
+                aria-label="Fermer la Lightbox"
+              >
+                &times;
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </section>
   );
 };
