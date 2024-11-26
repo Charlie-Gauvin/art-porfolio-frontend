@@ -133,8 +133,20 @@ const GalleryPage: React.FC<GalleryPageProps> = ({ title, apiEndpoint }) => {
             className="fixed inset-0 z-50 flex items-center justify-center"
             role="dialog"
             aria-modal="true"
+            onClick={closeLightbox}
           >
-            <div className="relative w-11/12 max-w-4xl overflow-hidden rounded-lg">
+            {/* Bouton de fermeture de la Lightbox */}
+            <button
+              onClick={closeLightbox}
+              className="absolute right-4 top-[110px] text-5xl text-white transition-colors hover:text-text3  "
+              aria-label="Fermer la Lightbox"
+            >
+              &times;
+            </button>
+            <div
+              className="relative w-11/12 max-w-4xl overflow-hidden rounded-lg"
+              onClick={(e) => e.stopPropagation()}
+            >
               <Image
                 src={selectedImage}
                 alt="Artwork enlarged"
@@ -142,16 +154,8 @@ const GalleryPage: React.FC<GalleryPageProps> = ({ title, apiEndpoint }) => {
                 width={800}
                 height={600}
                 className="max-h-[70vh] rounded-lg object-contain"
+                onClick={(e) => e.stopPropagation()}
               />
-
-              {/* Bouton de fermeture de la Lightbox */}
-              <button
-                onClick={closeLightbox}
-                className="absolute right-0 top-0 text-5xl text-white transition-colors hover:text-text3  "
-                aria-label="Fermer la Lightbox"
-              >
-                &times;
-              </button>
             </div>
           </div>
         </div>
