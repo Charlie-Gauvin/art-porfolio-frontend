@@ -41,7 +41,7 @@ export default function Header() {
             <Link href="/">Accueil</Link>
           </li>
           <li>
-            <Link href="/about">A propos</Link>
+            <Link href="/#about">A propos</Link>
           </li>
           <li
             className="relative"
