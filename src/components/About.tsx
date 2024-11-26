@@ -39,11 +39,11 @@ export default function About() {
       id="about"
       className="h-screen bg-background1 pt-20 font-antonio text-text1"
     >
-      <div className="flex flex-col items-center justify-center px-8 pt-28 lg:flex-row lg:space-x-32 lg:px-20 xl:justify-evenly">
+      <div className="flex h-full flex-col items-center justify-center px-8 lg:flex-row lg:space-x-32 lg:px-20 xl:justify-evenly">
         <div>
-          <h2 className="pb-20 text-center text-4xl md:pb-16 md:text-left md:text-5xl lg:pb-28 lg:text-7xl">
-            A PROPOS
-          </h2>
+        <h2 className="text-4xl md:pb-10 md:text-left md:text-5xl lg:pb-10 lg:text-7xl">
+        A PROPOS
+      </h2>
           {about && (
             <p className="max-w-xl pb-14 text-justify font-inter text-xs md:text-sm lg:pb-0 xl:max-w-2xl xl:text-xl">
               {about.Description}

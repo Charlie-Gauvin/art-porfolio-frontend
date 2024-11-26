@@ -61,9 +61,9 @@ const GalleryCard: React.FC<GalleryCardProps> = ({
           }
         >
           {/* Conteneur pour Dimensions et Prix */}
-          <div className="mb-4 flex items-center justify-between text-xs  sm:text-sm">
+          <div className="mb-4 flex items-center justify-between text-xs text-text1 sm:text-sm">
             <span className="italic">{dimensions}</span>
-            <span className="font-bold text-text3">{price} euros</span>
+            <span className="font-bold ">{price} euros</span>
           </div>
           <div className="mb-4 w-full border-b border-text1"></div>
           {/* Titre et Description */}

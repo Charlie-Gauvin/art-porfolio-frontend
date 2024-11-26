@@ -2,7 +2,6 @@
 
 import React, { useEffect, useState } from "react";
 import GalleryCard from "./GalleryCard";
-// import { cp } from "fs";
 
 interface Work {
   id: number;
