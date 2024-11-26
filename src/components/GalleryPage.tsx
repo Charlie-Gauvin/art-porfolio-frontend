@@ -2,6 +2,7 @@
 
 import React, { useEffect, useState } from "react";
 import GalleryCard from "./GalleryCard";
+// import { cp } from "fs";
 
 interface Work {
   id: number;
@@ -27,20 +28,30 @@ interface GalleryPageProps {
 
 const GalleryPage: React.FC<GalleryPageProps> = ({ title, apiEndpoint }) => {
   const [works, setWorks] = useState<Work[]>([]);
+  // Ajout des états pour la pagination
+  const [currentPage, setCurrentPage] = useState(1);
+  const [totalPages, setTotalPages] = useState(1);
+  const pageSize = 5; // Nombre d'œuvres par page
+
+  const handlePageChange = (page: number) => {
+    setCurrentPage(page);
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
 
   useEffect(() => {
     const fetchWorks = async () => {
       try {
-        const res = await fetch(`${apiEndpoint}&populate=*`);
+        const res = await fetch(`${apiEndpoint}&pagination[page]=${currentPage}&pagination[pageSize]=${pageSize}&populate=*`);
         const data = await res.json();
         console.log("API Data:", data); // Pour vérifier la structure des données
         setWorks(data.data); // Assigner la partie correcte des données
+        setTotalPages(data.meta.pagination.pageCount); // Mettre à jour le nombre total de pages
       } catch (error) {
         console.error("Erreur lors de la récupération des oeuvres", error);
       }
     };
     fetchWorks();
-  }, [apiEndpoint]);
+  }, [apiEndpoint, currentPage]);
 
   const baseURL = process.env.NEXT_PUBLIC_API_BASE_URL;
 
@@ -72,8 +83,23 @@ const GalleryPage: React.FC<GalleryPageProps> = ({ title, apiEndpoint }) => {
           );
         })}
       </div>
+      <div className="mt-8 flex justify-center space-x-4">
+        {Array.from({ length: totalPages }, (_, index) => (
+          <button
+            key={index}
+            onClick={() => handlePageChange(index + 1)}
+            className={`rounded px-4 py-2 ${
+              currentPage === index + 1
+                ? "border border-text1 bg-background1 text-text1"
+                : "border border-text2 bg-background2 text-text2 hover:border hover:border-text1 hover:bg-background1 hover:text-text1"
+            }`}
+          >
+            {index + 1}
+          </button>
+        ))}
+      </div>
     </section>
-  );
+  ); 
 };
 
 export default GalleryPage;
