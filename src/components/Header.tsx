@@ -59,11 +59,11 @@ export default function Header() {
           >
             <span className="cursor-pointer">Galerie</span>
             {isGalleryOpen && (
-              <ul className="absolute left-0 top-full space-y-1 rounded-lg bg-background2 p-4 text-base text-text3">
-                <li>
+              <ul className="absolute left-0 top-full space-y-1 border-2 border-text2 bg-background1 p-4 text-base text-text1">
+                <li className="hover:text-text3">
                   <Link href="/gallery/available-works">Disponible</Link>
                 </li>
-                <li>
+                <li className="hover:text-text3">
                   <Link href="/gallery/sold-works">Archives</Link>
                 </li>
               </ul>
@@ -76,11 +76,11 @@ export default function Header() {
           >
             <span className="cursor-pointer">Expositions</span>
             {isExhibitionsOpen && (
-              <ul className="absolute left-0 top-full space-y-1 rounded-lg bg-background2 p-4 text-base text-text3">
-                <li>
+              <ul className="absolute left-0 top-full space-y-1 border-2 border-text2  bg-background1 p-4 text-base text-text1">
+                <li className="hover:text-text3">
                   <Link href="/exhibitions/upcoming">Prochainement</Link>
                 </li>
-                <li>
+                <li className="hover:text-text3">
                   <Link href="/exhibitions/past">Passées</Link>
                 </li>
               </ul>

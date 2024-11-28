@@ -1,6 +1,7 @@
 
 import Image from "next/image";
 
+
 interface GalleryCardProps {
   title: string;
   description: string;
@@ -44,6 +45,7 @@ const GalleryCard: React.FC<GalleryCardProps> = ({
             reverse ? "lg:order-last" : ""
           }` }
         >
+          
           <div className="m-8 h-auto w-full max-w-[300px] lg:max-w-[350px]">
             <Image
               src={imageSrc}
@@ -55,6 +57,7 @@ const GalleryCard: React.FC<GalleryCardProps> = ({
               onClick={onImageClick} // Ouvrir la Lightbox quand on clique sur l'image
             />
           </div>
+        
         </div>
 
         {/* Détails de l'œuvre */}
