@@ -1,6 +1,6 @@
 export default function ContactForm() {
   return (
-    <section className="p-6 dark:text-gray-800">
+    <section className="h-screen p-6 dark:text-gray-800">
       <form
         noValidate
         className="container mx-auto w-full max-w-xl space-y-6 rounded-md p-8"
