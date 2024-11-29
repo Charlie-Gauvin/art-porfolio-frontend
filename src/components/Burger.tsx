@@ -40,7 +40,7 @@ export default function Burger() {
                 <Link href="/" onClick={handleMenu}>Accueil</Link>
               </li>
               <li>
-                <Link href="/about" onClick={handleMenu}>A propos</Link>
+                <Link href="#about" onClick={handleMenu}>A propos</Link>
               </li>
               <li>
               <button onClick={handleGallery} aria-expanded={isGalleryOpen}>
