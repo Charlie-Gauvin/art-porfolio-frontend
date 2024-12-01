@@ -4,12 +4,17 @@ import Burger from "./Burger";
 import Image from "next/image";
 import Link from "next/link";
 import logo from "../../public/assets/logo.svg";
+import underline from "../../public/assets/Header/underline.svg";
 // import paint1 from "../../public/assets/hero/Splash1.svg";
-import { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
+import { gsap } from "gsap";
 
 export default function Header() {
   const [isGalleryOpen, setIsGalleryOpen] = useState(false);
   const [isExhibitionsOpen, setIsExhibitionsOpen] = useState(false);
+
+  const galleryMenuRef = useRef<HTMLUListElement>(null);
+  const exhibitionsMenuRef = useRef<HTMLUListElement>(null);
 
   const handleExhibitions = () => {
     setIsExhibitionsOpen(!isExhibitionsOpen);
@@ -19,13 +24,60 @@ export default function Header() {
     setIsGalleryOpen(!isGalleryOpen);
   };
 
+  useEffect(() => {
+    if (isGalleryOpen && galleryMenuRef.current) {
+      gsap.fromTo(
+        galleryMenuRef.current,
+        { opacity: 0, y: -20 },
+        { opacity: 1, y: 0, duration: 0.5 }
+      );
+    }
+  }, [isGalleryOpen]);
+
+  useEffect(() => {
+    if (isExhibitionsOpen && exhibitionsMenuRef.current) {
+      gsap.fromTo(
+        exhibitionsMenuRef.current,
+        { opacity: 0, y: -20 },
+        { opacity: 1, y: 0, duration: 0.5 }
+      );
+    }
+  }, [isExhibitionsOpen]);
+
+  const handleMouseEnter = (
+    e: React.MouseEvent<HTMLAnchorElement, MouseEvent>
+  ) => {
+    const link = e.currentTarget;
+    const underline = link.querySelector("img");
+    if (underline) {
+      gsap.fromTo(
+        underline,
+        { scaleX: 0, transformOrigin: "left" },
+        { scaleX: 1, duration: 0.5, ease: "power2.out" }
+      );
+    }
+  };
+
+  const handleMouseLeave = (
+    e: React.MouseEvent<HTMLAnchorElement, MouseEvent>
+  ) => {
+    const link = e.currentTarget;
+    const underline = link.querySelector("img");
+    if (underline) {
+      gsap.fromTo(
+        underline,
+        { scaleX: 1, transformOrigin: "left" },
+        { scaleX: 0, duration: 0.5, ease: "power2.out" }
+      );
+    }
+  };
   return (
     <header
       className="sticky top-0 z-50 flex w-full items-center justify-between border-b-2 border-text1 bg-background1 px-6 py-8 sm:px-12 lg:px-20"
       role="banner"
     >
-              {/* SVG paint1 en haut à droite */}
-              {/* <div className="absolute right-0 top-0 -z-10">
+      {/* SVG paint1 en haut à droite */}
+      {/* <div className="absolute right-0 top-0 -z-10">
           <Image
             src={paint1}
             alt="Paint Splash"
@@ -47,10 +99,34 @@ export default function Header() {
       >
         <ul className="flex sm:gap-8 lg:gap-12 ">
           <li>
-            <Link href="/">Accueil</Link>
+            <Link
+              href="/"
+              onMouseEnter={handleMouseEnter}
+              onMouseLeave={handleMouseLeave}
+            >
+              Accueil
+              <Image
+                src={underline}
+                alt="underline"
+                className="relative bottom-0 left-0 h-1 w-full"
+                style={{ transform: "scaleX(0)", transformOrigin: "left" }}
+              />
+            </Link>
           </li>
           <li>
-            <Link href="/#about">A propos</Link>
+            <Link
+              href="/#about"
+              onMouseEnter={handleMouseEnter}
+              onMouseLeave={handleMouseLeave}
+            >
+              A propos
+              <Image
+                src={underline}
+                alt="underline"
+                className="relative bottom-0 left-0 h-1 w-full"
+                style={{ transform: "scaleX(0)", transformOrigin: "left" }}
+              />
+            </Link>
           </li>
           <li
             className="relative"
@@ -59,7 +135,10 @@ export default function Header() {
           >
             <span className="cursor-pointer">Galerie</span>
             {isGalleryOpen && (
-              <ul className="absolute left-0 top-full space-y-1 border-2 border-text2 bg-background1 p-4 text-base text-text1">
+              <ul
+                ref={galleryMenuRef}
+                className="absolute left-0 top-full space-y-1 border-2 border-text2 bg-background1 p-4 text-base text-text1"
+              >
                 <li className="hover:text-text3">
                   <Link href="/gallery/available-works">Disponible</Link>
                 </li>
@@ -76,7 +155,10 @@ export default function Header() {
           >
             <span className="cursor-pointer">Expositions</span>
             {isExhibitionsOpen && (
-              <ul className="absolute left-0 top-full space-y-1 border-2 border-text2  bg-background1 p-4 text-base text-text1">
+              <ul
+                ref={exhibitionsMenuRef}
+                className="absolute left-0 top-full space-y-1 border-2 border-text2  bg-background1 p-4 text-base text-text1"
+              >
                 <li className="hover:text-text3">
                   <Link href="/exhibitions/upcoming">Prochainement</Link>
                 </li>
@@ -87,7 +169,19 @@ export default function Header() {
             )}
           </li>
           <li>
-            <Link href="/contact">Contact</Link>
+            <Link
+              href="/contact"
+              onMouseEnter={handleMouseEnter}
+              onMouseLeave={handleMouseLeave}
+            >
+              Contact
+              <Image
+                src={underline}
+                alt="underline"
+                className="relative bottom-0 left-0 h-1 w-full"
+                style={{ transform: "scaleX(0)", transformOrigin: "left" }}
+              />
+            </Link>
           </li>
         </ul>
       </nav>
