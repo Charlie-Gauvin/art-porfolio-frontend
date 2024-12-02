@@ -1,13 +1,61 @@
+"use client";
+import { useEffect, useRef} from "react";
+import { gsap } from "gsap";
 import About from "../components/About";
 import Image from "next/image";
 import canva from "../../public/assets/hero/canva.webp";
 import graffiti from "../../public/assets/hero/graffiti.svg";
 import insta from "../../public/assets/hero/instagram.svg";
 import facebook from "../../public/assets//hero/facebook.svg";
-import paint1 from "../../public/assets/hero/Splash1.svg";
-import paint2 from "../../public/assets/hero/Splash2.svg";
+
+// import paint1 from "../../public/assets/hero/Splash1.svg";
+// import paint2 from "../../public/assets/hero/Splash2.svg";
+
+
 
 export default function Home() {
+
+  const paint1Ref = useRef<HTMLImageElement>(null);
+  const paint2Ref = useRef<HTMLImageElement>(null);
+
+  useEffect(() => {
+    // Anim pour paint1
+    gsap.fromTo(
+      paint1Ref.current,
+      {
+        scale: 0.2,
+        opacity: 0,
+        filter: "blur(8px)", // Flou initial
+        transformOrigin: "top right",
+      },
+      {
+        scale: 1,
+        opacity: 1,
+        filter: "blur(0px)", // Plus net à la fin
+        duration: 2,
+        ease: "power3.out",
+      }
+    );
+  
+
+    // Anim pour paint2
+    gsap.fromTo(
+      paint2Ref.current,
+      {
+        scale: 0.2,
+        opacity: 0,
+        filter: "blur(4px)", // Flou initial
+        transformOrigin: "left",
+      },
+      {
+        scale: 1,
+        opacity: 1,
+        filter: "blur(0px)", // Plus net à la fin
+        duration: 2,
+        ease: "power2.out",
+      }
+    );
+  }, []);
   return (
     <div>
       <section className="flex h-screen items-center justify-center bg-background1 font-antonio text-text1">
@@ -16,20 +64,22 @@ export default function Home() {
         ########################## */}
         {/* SVG paint1 en haut à droite */}
         <div className="absolute right-0 top-24">
-          <Image
-            src={paint1}
+          <img
+            src="../../assets/hero/Splash1.svg"
             alt="Paint Splash"
+            ref={paint1Ref}
             className="w-44 md:w-60 lg:w-80 xl:w-96"
           />
         </div>
         {/* SVG paint2 en bas à gauche */}
-            <div className="absolute -bottom-36 left-0 hidden md:block lg:-bottom-48 xl:-bottom-56">
-            <Image
-              src={paint2}
-              alt="Paint Splash"
-              className="md:w-60 lg:w-80 xl:w-96"
-            />
-          </div>
+        <div className="absolute -bottom-36 left-0 hidden md:block lg:-bottom-48 xl:-bottom-56">
+          <img
+            src="../../assets/hero/Splash2.svg"
+            alt="Paint Splash"
+            ref={paint2Ref}
+            className="md:w-60 lg:w-80 xl:w-96"
+          />
+        </div>
         <div className="flex flex-col items-center space-y-20 pb-40 lg:flex-row lg:space-x-24 xl:space-x-56 2xl:space-x-80">
           <div className="flex flex-col items-start">
             <div className="flex items-center text-xs md:text-sm lg:text-lg">
@@ -52,7 +102,11 @@ export default function Home() {
             </h2>
           </div>
           <figure className="w-full max-w-60 md:max-w-72 xl:max-w-sm ">
-            <Image src={canva} alt="canva" className="shadow-[0px_2px_10px_8px_rgba(255,_255,_255,_0.05)]" />
+            <Image
+              src={canva}
+              alt="canva"
+              className="shadow-[0px_2px_10px_8px_rgba(255,_255,_255,_0.05)]"
+            />
           </figure>
         </div>
         {/* Ancien Positionnement en SB */}
