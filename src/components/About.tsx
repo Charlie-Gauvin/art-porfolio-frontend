@@ -3,6 +3,7 @@
 import Image from "next/image";
 // import profile from "../../public/assets/about/Profile.webp";
 import { useEffect, useState } from "react";
+import Career from "../components/Career";
 import brush from "../../public/assets/about/brush.svg";
 
 type About = {
@@ -38,14 +39,12 @@ export default function About() {
   return (
     <section
       id="about"
-      className="h-screen bg-background1 pt-20 font-antonio text-text1"
+      className="min-h-screen bg-background1 pt-36 font-antonio text-text1"
     >
       <div className="flex h-full flex-col items-center justify-center px-8 lg:flex-row lg:space-x-32 lg:px-20 xl:justify-evenly">
         <div className="space-y-16 md:space-y-24 lg:space-y-28">
           <div className="text-center md:text-left">
-            <h2 className="text-4xl md:text-5xl lg:text-7xl">
-              A PROPOS
-            </h2>
+            <h2 className="text-4xl md:text-5xl lg:text-7xl">A PROPOS</h2>
             <div className="mt-3 flex justify-center md:justify-start">
               <Image
                 src={brush}
@@ -55,7 +54,7 @@ export default function About() {
             </div>
           </div>
           {about && (
-            <p className="max-w-xl pb-14 text-justify font-inter text-xs md:text-sm lg:pb-0 xl:max-w-2xl xl:text-xl">
+            <p className="max-w-xl pb-14 text-justify font-inter text-xs md:text-sm lg:pb-0 xl:max-w-2xl xl:text-lg">
               {about.Description}
             </p>
           )}
@@ -72,6 +71,7 @@ export default function About() {
           </figure>
         )}
       </div>
+      <Career />
     </section>
   );
 }

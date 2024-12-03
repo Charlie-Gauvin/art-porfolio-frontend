@@ -1,12 +1,5 @@
-"use client";
-import { useState } from "react";
-
-interface FormData {
-  name: string;
-  email: string;
-  sujet: string;
-  message: string;
-}
+// import Image from "next/image";
+// import splashForm from "../../public/assets/contact/SplashForm.svg";
 
 export default function ContactForm() {
   const [formData, setFormData] = useState<FormData>({
@@ -55,11 +48,10 @@ export default function ContactForm() {
   };
 
   return (
-    <section className="h-screen p-6 dark:text-gray-800">
+    <section className="relative h-screen p-6 dark:text-gray-800">
       <form
         noValidate
-        className="container mx-auto w-full max-w-xl space-y-6 rounded-md p-8"
-        onSubmit={handleSubmit}
+        className="container mx-auto w-full max-w-xl space-y-6 rounded-md p-8 shadow-lg"
       >
         <div>
           <label htmlFor="name" className="mb-1 ml-1 block">

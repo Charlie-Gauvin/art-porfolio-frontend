@@ -72,10 +72,16 @@ export default function Home() {
         </div>
         {/* SVG paint2 en bas à gauche */}
         <div className="absolute -bottom-36 left-0 hidden md:block lg:-bottom-48 xl:-bottom-56">
+<<<<<<< HEAD
           <img
             src="../../assets/hero/Splash2.svg"
             alt="Paint Splash"
             ref={paint2Ref}
+=======
+          <Image
+            src={paint2}
+            alt="Paint Splash"
+>>>>>>> main
             className="md:w-60 lg:w-80 xl:w-96"
           />
         </div>

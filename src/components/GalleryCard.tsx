@@ -19,6 +19,7 @@ const GalleryCard: React.FC<GalleryCardProps> = ({
   imageSrc,
   dimensions,
   price,
+  artStatus,
   reverse,
   onImageClick,
 }) => {
@@ -69,12 +70,12 @@ const GalleryCard: React.FC<GalleryCardProps> = ({
           {/* Conteneur pour Dimensions et Prix */}
           <div className="mb-4 flex items-center justify-between text-xs text-text1 sm:text-sm">
             <span className="italic">{dimensions}</span>
-            <span className="font-bold ">{price} euros</span>
+            <span className="font-bold ">{artStatus === "sold" ? "Vendu" : `${price} euros`}</span>
           </div>
           <div className="mb-4 w-full border-b border-text1"></div>
           {/* Titre et Description */}
           <h2 className="mb-2 text-2xl font-semibold sm:text-3xl">{title}</h2>
-          <p className="max-w-lg flex-1 pt-2 font-inter text-xs sm:text-sm md:text-base">{description}</p>
+          <p className="max-w-lg flex-1 pt-2 text-justify font-inter text-xs sm:text-sm md:text-base">{description}</p>
         </div>
       </div>
 
