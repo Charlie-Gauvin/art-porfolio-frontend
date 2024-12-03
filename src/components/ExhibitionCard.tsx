@@ -20,6 +20,7 @@ type Exhibitions = {
   Description: string;
   Lieu: string;
   format: string;
+  Redirection_Link: string;
 };
 
 // typage des props gérer la date de début et de fin
@@ -64,13 +65,13 @@ const smallExhibitions = filteredExhibitions.filter(exhibition => exhibition.for
     {largeExhibitions.map((exhibition) => (
 
         
-      <a key={exhibition.id} rel="noopener noreferrer" href="#" className="group mx-auto block max-w-sm gap-3 hover:no-underline focus:no-underline sm:max-w-full lg:grid lg:grid-cols-12">
+      <a key={exhibition.id} rel="noopener noreferrer" href={exhibition.Redirection_Link} target="_blank" className="group mx-auto block max-w-sm gap-3 hover:no-underline focus:no-underline sm:max-w-full lg:grid lg:grid-cols-12">
         <Image src={`http://localhost:1337${exhibition.Image.url}`} width={exhibition.Image.width} height={exhibition.Image.height} alt="" className="h-64 w-full rounded object-cover sm:h-96 lg:col-span-7" />
         <div className="space-y-2 p-6 lg:col-span-5">
           <h3 className="text-2xl font-semibold group-hover:underline group-focus:underline sm:text-4xl">{exhibition.Title}</h3>
           <div className="font-inter">
           <span className="text-xs "> Du {exhibition.BeginDate} au {exhibition.EndDate}</span>  
-          <p>{exhibition.Description}</p>
+          <p className="text-justify">{exhibition.Description}</p>
           <span className="text-xs">{exhibition.Lieu}</span>
           </div>
         </div>
@@ -80,14 +81,14 @@ const smallExhibitions = filteredExhibitions.filter(exhibition => exhibition.for
         {smallExhibitions.map((exhibition) => (
 
 
-        <a key={exhibition.id} rel="noopener noreferrer" href="#" className="group mx-auto max-w-sm hover:no-underline focus:no-underline ">
+        <a key={exhibition.id} rel="noopener noreferrer" href={exhibition.Redirection_Link} target="_blank" className="group mx-auto max-w-sm hover:no-underline focus:no-underline ">
           <Image role="presentation" className="h-44 w-full rounded object-cover " src={`http://localhost:1337${exhibition.Image.url}`}  width={exhibition.Image.width} height={exhibition.Image.height} alt="tableau" />
           <div className="space-y-2 p-6">
             <h3 className="text-2xl font-semibold group-hover:underline group-focus:underline">{exhibition.Title}</h3>
             <div className="font-inter">
 
             <span className="text-xs">Du {exhibition.BeginDate} au {exhibition.EndDate}</span>
-            <p>{exhibition.Description}</p>
+            <p className="text-justify">{exhibition.Description}</p>
             <span className="text-xs">{exhibition.Lieu}</span>
             </div>
           </div>

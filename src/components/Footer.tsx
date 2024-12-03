@@ -6,10 +6,9 @@ import Facebook from "../../public/assets/facebook.svg";
 
 const Footer = () => {
   return (
-    <footer className="flex flex-col items-center justify-between border-t border-text1 bg-background1 px-10 py-6 font-antonio text-text1 md:flex-row md:px-20 md:py-8">
-
-            {/* Logo */}
-            <div className="order-2 flex w-20 justify-center sm:w-24 md:order-none lg:w-28 xl:w-32">
+    <footer className="flex flex-col items-center justify-between border-t border-text1 bg-background1 px-10 py-6 font-antonio text-text1 md:flex-row md:px-14 md:py-6">
+      {/* Logo */}
+      <div className="order-2 flex w-20 justify-center sm:w-24 md:order-none lg:w-28 xl:w-32">
         <Image src={LogoPage} alt="Logo" />
       </div>
 
@@ -48,7 +47,6 @@ const Footer = () => {
           </div>
         </div>
       </div>
-
     </footer>
   );
 };
