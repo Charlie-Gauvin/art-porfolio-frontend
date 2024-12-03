@@ -23,13 +23,13 @@ export default function Home() {
           />
         </div>
         {/* SVG paint2 en bas à gauche */}
-            <div className="absolute -bottom-36 left-0 hidden md:block lg:-bottom-48 xl:-bottom-56">
-            <Image
-              src={paint2}
-              alt="Paint Splash"
-              className="md:w-60 lg:w-80 xl:w-96"
-            />
-          </div>
+        <div className="absolute -bottom-36 left-0 hidden md:block lg:-bottom-48 xl:-bottom-56">
+          <Image
+            src={paint2}
+            alt="Paint Splash"
+            className="md:w-60 lg:w-80 xl:w-96"
+          />
+        </div>
         <div className="flex flex-col items-center space-y-20 pb-40 lg:flex-row lg:space-x-24 xl:space-x-56 2xl:space-x-80">
           <div className="flex flex-col items-start">
             <div className="flex items-center text-xs md:text-sm lg:text-lg">
@@ -52,7 +52,11 @@ export default function Home() {
             </h2>
           </div>
           <figure className="w-full max-w-60 md:max-w-72 xl:max-w-sm ">
-            <Image src={canva} alt="canva" className="shadow-[0px_2px_10px_8px_rgba(255,_255,_255,_0.05)]" />
+            <Image
+              src={canva}
+              alt="canva"
+              className="shadow-[0px_2px_10px_8px_rgba(255,_255,_255,_0.05)]"
+            />
           </figure>
         </div>
         {/* Ancien Positionnement en SB */}
