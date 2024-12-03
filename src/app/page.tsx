@@ -1,5 +1,7 @@
+/* eslint-disable @next/next/no-img-element */
+/* eslint-disable react/jsx-no-comment-textnodes */
 "use client";
-import { useEffect, useRef} from "react";
+import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import About from "../components/About";
 import Image from "next/image";
@@ -11,10 +13,7 @@ import facebook from "../../public/assets//hero/facebook.svg";
 // import paint1 from "../../public/assets/hero/Splash1.svg";
 // import paint2 from "../../public/assets/hero/Splash2.svg";
 
-
-
 export default function Home() {
-
   const paint1Ref = useRef<HTMLImageElement>(null);
   const paint2Ref = useRef<HTMLImageElement>(null);
 
@@ -25,18 +24,17 @@ export default function Home() {
       {
         scale: 0.2,
         opacity: 0,
-        filter: "blur(8px)", // Flou initial
+        filter: "blur(8px)",
         transformOrigin: "top right",
       },
       {
         scale: 1,
         opacity: 1,
-        filter: "blur(0px)", // Plus net à la fin
+        filter: "blur(0px)",
         duration: 2,
         ease: "power3.out",
       }
     );
-  
 
     // Anim pour paint2
     gsap.fromTo(
@@ -44,13 +42,13 @@ export default function Home() {
       {
         scale: 0.2,
         opacity: 0,
-        filter: "blur(4px)", // Flou initial
+        filter: "blur(4px)",
         transformOrigin: "left",
       },
       {
         scale: 1,
         opacity: 1,
-        filter: "blur(0px)", // Plus net à la fin
+        filter: "blur(0px)",
         duration: 2,
         ease: "power2.out",
       }
@@ -64,6 +62,7 @@ export default function Home() {
         ########################## */}
         {/* SVG paint1 en haut à droite */}
         <div className="absolute right-0 top-24">
+          // eslint-disable-next-line @next/next/no-img-element
           <img
             src="../../assets/hero/Splash1.svg"
             alt="Paint Splash"
