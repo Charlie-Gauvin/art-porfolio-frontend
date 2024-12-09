@@ -1,17 +1,7 @@
 
 import Image from "next/image";
+import { GalleryCardProps } from "../types/types";
 
-
-interface GalleryCardProps {
-  title: string;
-  description: string;
-  imageSrc: string;
-  artStatus: string;
-  dimensions: string;
-  price: number;
-  reverse?: boolean;
-  onImageClick: () => void;
-}
 
 const GalleryCard: React.FC<GalleryCardProps> = ({
   title,
@@ -23,15 +13,6 @@ const GalleryCard: React.FC<GalleryCardProps> = ({
   reverse,
   onImageClick,
 }) => {
-  // // État pour gérer l'affichage de la Lightbox
-  // const [isLightboxOpen, setIsLightboxOpen] = useState(false);
-  
-
-  // // Fonction pour ouvrir et fermer la Lightbox
-  // const toggleLightbox = () => {
-  //   setIsLightboxOpen(!isLightboxOpen);
-  // };
-
   return (
 
 
@@ -68,13 +49,13 @@ const GalleryCard: React.FC<GalleryCardProps> = ({
           }
         >
           {/* Conteneur pour Dimensions et Prix */}
-          <div className="mb-4 flex items-center justify-between text-xs text-text1 sm:text-sm">
+          <div className="mb-4 flex items-center justify-between text-xs text-text1 sm:text-lg">
             <span className="italic">{dimensions}</span>
             <span className="font-bold ">{artStatus === "sold" ? "Vendu" : `${price} euros`}</span>
           </div>
           <div className="mb-4 w-full border-b border-text1"></div>
           {/* Titre et Description */}
-          <h2 className="mb-2 text-2xl font-semibold sm:text-3xl">{title}</h2>
+          <h2 className="mb-2 text-2xl font-semibold sm:text-4xl">{title}</h2>
           <p className="max-w-lg flex-1 pt-2 text-justify font-inter text-xs sm:text-sm md:text-base">{description}</p>
         </div>
       </div>

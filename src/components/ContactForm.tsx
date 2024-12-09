@@ -1,6 +1,3 @@
-// import Image from "next/image";
-// import splashForm from "../../public/assets/contact/SplashForm.svg";
-
 export default function ContactForm() {
   return (
     <section className="relative h-screen p-6 dark:text-gray-800">
@@ -41,7 +38,7 @@ export default function ContactForm() {
             type="sujet"
             placeholder="sujet"
             required
-            className="block w-full rounded bg-background2  p-2 "
+            className="block w-full rounded bg-background2 p-2 "
           />
         </div>
         <div>
@@ -51,13 +48,13 @@ export default function ContactForm() {
           <textarea
             id="message"
             placeholder="Message..."
-            className=" block w-full rounded bg-background2  p-2 "
+            className=" block w-full rounded bg-background2 p-2 "
           ></textarea>
         </div>
         <div>
           <button
             type="submit"
-            className="w-full rounded bg-text3 px-4 py-2 font-bold text-text1  hover:bg-background2 hover:text-text3"
+            className="w-full rounded bg-text3 px-4 py-2 font-bold text-text1 hover:bg-background2 hover:text-text3"
           >
             Send
           </button>

@@ -5,31 +5,11 @@ import GalleryCard from "./GalleryCard";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import Image from "next/image";
+import { GalleryPageProps } from "../types/types";
+import { Work } from "../types/types";
 
 
 gsap.registerPlugin(ScrollTrigger);
-
-interface Work {
-  id: number;
-  title: string;
-  description: string;
-  dimensions: string;
-  price: number;
-  artStatus: string;
-  image?: {
-    id: number;
-    documentId: string;
-    name: string;
-    alternativeText?: string;
-    caption?: string;
-    url: string; // L'URL de l'image est directement à ce niveau
-  };
-}
-
-interface GalleryPageProps {
-  title: string;
-  apiEndpoint: string;
-}
 
 const GalleryPage: React.FC<GalleryPageProps> = ({ title, apiEndpoint }) => {
   const [works, setWorks] = useState<Work[]>([]);
@@ -101,7 +81,7 @@ const GalleryPage: React.FC<GalleryPageProps> = ({ title, apiEndpoint }) => {
   };
 
   return (
-    <section className="min-h-screen bg-background1 py-12">
+    <section className="min-h-screen bg-background1 pb-12">
       <div className="mb-12 text-center">
       <h2 className="mb-4 text-5xl font-bold text-text1">{title}</h2>
       </div>
@@ -145,7 +125,7 @@ const GalleryPage: React.FC<GalleryPageProps> = ({ title, apiEndpoint }) => {
           ></div>
           {/* Conteneur de la Lightbox */}
           <div
-            className="fixed inset-0 z-50 flex items-center justify-center"
+            className="fixed inset-0 z-50 flex items-center justify-center pt-20"
             role="dialog"
             aria-modal="true"
             onClick={closeLightbox}

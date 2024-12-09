@@ -76,14 +76,6 @@ export default function Header() {
       className="sticky top-0 z-50 flex w-full items-center justify-between border-b-2 border-text1 bg-background1 px-6 py-8 sm:px-12 lg:px-20"
       role="banner"
     >
-      {/* SVG paint1 en haut à droite */}
-      {/* <div className="absolute right-0 top-0 -z-10">
-          <Image
-            src={paint1}
-            alt="Paint Splash"
-            className="w-24 md:w-32 lg:w-full"
-          />
-        </div> */}
       <figure>
         <Link href="/">
           <Image
