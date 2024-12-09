@@ -1,27 +1,34 @@
 "use client";
 
-import open from "../../public/assets/burgerMenu/open.svg";
-import close from "../../public/assets/burgerMenu/close.svg";
-import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import open from "../../public/assets/burgerMenu/open.svg";
+import close from "../../public/assets/burgerMenu/close.svg";
+import { useCallback, useState } from "react";
 
 export default function Burger() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isGalleryOpen, setIsGalleryOpen] = useState(false);
   const [isExhibitionsOpen, setIsExhibitionsOpen] = useState(false);
 
-  const handleExhibitions = () => {
-    setIsExhibitionsOpen(!isExhibitionsOpen);
-  };
 
-  const handleGallery = () => {
-    setIsGalleryOpen(!isGalleryOpen);
-  };
+  const handleExhibitions = useCallback(() => {
+    setIsExhibitionsOpen((prev) => !prev);
+  }, []);
 
-  const handleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
-  };
+  const handleGallery = useCallback(() => {
+    setIsGalleryOpen((prev) => !prev);
+  }, []);
+
+  const handleMenu = useCallback(() => {
+    setIsMenuOpen((prev) => !prev);
+  }, []);
+
+  const closeMenu = useCallback(() => {
+    setIsMenuOpen(false);
+    setIsGalleryOpen(false);
+    setIsExhibitionsOpen(false);
+  }, []);
 
 
   return (
@@ -37,10 +44,10 @@ export default function Burger() {
         <nav className="fixed inset-0 flex items-center justify-center bg-background2 text-text2">
           <ul className="flex flex-col items-center space-y-6 text-4xl font-bold">
               <li>
-                <Link href="/" onClick={handleMenu}>Accueil</Link>
+                <Link href="/" onClick={closeMenu}>Accueil</Link>
               </li>
               <li>
-                <Link href="#about" onClick={handleMenu}>A propos</Link>
+                <Link href="#about" onClick={closeMenu}>A propos</Link>
               </li>
               <li>
               <button onClick={handleGallery} aria-expanded={isGalleryOpen}>
@@ -49,10 +56,10 @@ export default function Burger() {
                 {isGalleryOpen && (
                   <ul className="space-y-1 pt-4 text-center text-xl text-text3">
                     <li>
-                      <Link href="#" onClick={handleMenu}>Disponible</Link>
+                      <Link href="/gallery/available-works" onClick={closeMenu}>Disponible</Link>
                     </li>
                     <li>
-                      <Link href="#" onClick={handleMenu}>Archives</Link>
+                      <Link href="/gallery/sold-works" onClick={closeMenu}>Archives</Link>
                     </li>
                   </ul>
                 )}     
@@ -64,16 +71,16 @@ export default function Burger() {
                 {isExhibitionsOpen && (
                   <ul className="space-y-1 pt-4 text-center text-xl text-text3">
                     <li>
-                      <Link href="#" onClick={handleMenu}>Prochainement</Link>
+                      <Link href="/exhibitions/upcoming" onClick={closeMenu}>Prochainement</Link>
                     </li>
                     <li>
-                      <Link href="#" onClick={handleMenu}>Passées</Link>
+                      <Link href="/exhibitions/past" onClick={closeMenu}>Passées</Link>
                     </li>
                   </ul>
                 )}
               </li>
               <li>
-                <Link href="/contact" onClick={handleMenu}>Contact</Link>
+                <Link href="/contact" onClick={closeMenu}>Contact</Link>
               </li>
           </ul>
         </nav>

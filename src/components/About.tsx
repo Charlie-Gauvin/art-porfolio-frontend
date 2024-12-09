@@ -1,31 +1,22 @@
 "use client";
 
-import Image from "next/image";
-// import profile from "../../public/assets/about/Profile.webp";
-import { useEffect, useState } from "react";
 import Career from "../components/Career";
+import Image from "next/image";
+import { useEffect, useState } from "react";
+import { About as AboutType } from "../types/types";
 import brush from "../../public/assets/about/brush.svg";
 
-type About = {
-  Description: string;
-  Image: {
-    url: string;
-    width: number;
-    height: number;
-  };
-};
 
 export default function About() {
-  const [about, setAbout] = useState<About | null>(null);
+  const [about, setAbout] = useState<AboutType | null>(null);
 
   useEffect(() => {
     const fetchAbout = async () => {
       try {
         const response = await fetch(
-          "http://localhost:1337/api/about?populate=*"
+          `${process.env.NEXT_PUBLIC_API_BASE_URL}/api/about?populate=*`
         );
         const data = await response.json();
-        console.log("Données récupérées:", data);
         setAbout(data.data);
       } catch (error) {
         console.error("An error occurred while fetching the about", error);
@@ -33,8 +24,6 @@ export default function About() {
     };
     fetchAbout();
   }, []);
-
-  const baseURL = process.env.NEXT_PUBLIC_API_BASE_URL;
 
   return (
     <section
@@ -48,7 +37,7 @@ export default function About() {
             <div className="mt-3 flex justify-center md:justify-start">
               <Image
                 src={brush}
-                alt="Paint brush"
+                alt="image de trace de peinture en dessous le titre"
                 className="w-24 md:ml-5 md:w-32 lg:ml-6 lg:w-48"
               />
             </div>
@@ -62,11 +51,10 @@ export default function About() {
         {about && (
           <figure className="w-full max-w-60 md:max-w-72 xl:max-w-sm">
             <Image
-              src={`${baseURL}${about.Image.url}`}
-              alt="Profile picture"
+              src={`${process.env.NEXT_PUBLIC_API_BASE_URL}${about.Image.url}`}
+              alt="Photo de profil"
               width={about.Image.width}
               height={about.Image.height}
-              className=""
             />
           </figure>
         )}
