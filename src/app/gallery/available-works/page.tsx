@@ -8,7 +8,7 @@ const AvailableWorksPage: React.FC = () => {
         <span className="text-text3">Oeuvres</span> disponibles
       </h2>
       <GalleryPage
-        apiEndpoint="http://localhost:1337/api/galleries?filters[artStatus][$eq]=available" // L'endpoint fictif pour les œuvres disponibles (à adapter selon ton backend)
+        apiEndpoint={`${process.env.NEXT_PUBLIC_API_BASE_URL}/api/galleries?filters[artStatus][$eq]=available`} // L'endpoint fictif pour les œuvres disponibles (à adapter selon ton backend)
         title={""}
       />
     </section>

@@ -9,7 +9,7 @@ const SoldWorksPage: React.FC = () => {
       </h2>
     <GalleryPage
       title={""}
-      apiEndpoint="http://localhost:1337/api/galleries?filters[artStatus][$eq]=sold" // L'endpoint fictif pour les œuvres vendues (à adapter selon ton backend)
+      apiEndpoint={`${process.env.NEXT_PUBLIC_API_BASE_URL}/api/galleries?filters[artStatus][$eq]=sold`} // L'endpoint fictif pour les œuvres vendues (à adapter selon ton backend)
     />
     </section>
   );
