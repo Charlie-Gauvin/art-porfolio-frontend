@@ -59,7 +59,7 @@ export default function ExhibitionsCard({ isUpcoming }: ExhibitionsCardProps) {
             className="group mx-auto block max-w-sm gap-3 hover:no-underline focus:no-underline sm:max-w-full lg:grid lg:grid-cols-12"
           >
             <Image
-              src={`http://localhost:1337${exhibition.Image.url}`}
+              src={`${process.env.NEXT_PUBLIC_API_BASE_URL}${exhibition.Image.url}`}
               width={exhibition.Image.width}
               height={exhibition.Image.height}
               alt=""
@@ -92,7 +92,7 @@ export default function ExhibitionsCard({ isUpcoming }: ExhibitionsCardProps) {
               <Image
                 role="presentation"
                 className="h-44 w-full rounded object-cover "
-                src={`http://localhost:1337${exhibition.Image.url}`}
+                src={`${process.env.NEXT_PUBLIC_API_BASE_URL}${exhibition.Image.url}`}
                 width={exhibition.Image.width}
                 height={exhibition.Image.height}
                 alt="tableau"
