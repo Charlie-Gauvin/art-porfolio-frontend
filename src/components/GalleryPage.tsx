@@ -150,7 +150,6 @@ const GalleryPage: React.FC<GalleryPageProps> = ({ title, apiEndpoint }) => {
                 height={600}
                 className="max-h-[70vh] rounded-lg object-contain"
                 onClick={(e) => e.stopPropagation()}
-                unoptimized
               />
             </div>
           </div>

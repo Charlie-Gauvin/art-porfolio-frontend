@@ -37,7 +37,6 @@ const GalleryCard: React.FC<GalleryCardProps> = ({
               height={400} // Hauteur de l'image
               className="cursor-pointer object-cover" // Utilisez object-cover pour ajuster l'image
               onClick={onImageClick} // Ouvrir la Lightbox quand on clique sur l'image
-              unoptimized
             />
           </div>
         

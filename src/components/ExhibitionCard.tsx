@@ -64,7 +64,6 @@ export default function ExhibitionsCard({ isUpcoming }: ExhibitionsCardProps) {
               height={exhibition.Image.height}
               alt=""
               className="h-64 w-full rounded object-cover sm:h-96 lg:col-span-7"
-              unoptimized
             />
             <div className="space-y-2 p-6 lg:col-span-5">
               <h3 className="text-2xl font-semibold group-hover:underline group-focus:underline sm:text-4xl">
@@ -97,7 +96,6 @@ export default function ExhibitionsCard({ isUpcoming }: ExhibitionsCardProps) {
                 width={exhibition.Image.width}
                 height={exhibition.Image.height}
                 alt="tableau"
-                unoptimized
               />
               <div className="space-y-2 p-6">
                 <h3 className="text-2xl font-semibold group-hover:underline group-focus:underline">

@@ -55,7 +55,6 @@ export default function About() {
               alt="Photo de profil"
               width={about.Image.width}
               height={about.Image.height}
-              unoptimized
             />
           </figure>
         )}
