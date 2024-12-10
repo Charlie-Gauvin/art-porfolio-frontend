@@ -51,7 +51,7 @@ export default function About() {
         {about && (
           <figure className="w-full max-w-60 md:max-w-72 xl:max-w-sm">
             <Image
-              src={`${process.env.NEXT_PUBLIC_API_BASE_URL}${about.Image.url}`}
+              src={`${process.env.NEXT_PUBLIC_API_BASE_URL}/api/${about.Image.url}`}
               alt="Photo de profil"
               width={about.Image.width}
               height={about.Image.height}
