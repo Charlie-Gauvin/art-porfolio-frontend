@@ -27,7 +27,7 @@ const Footer = () => {
           <p className="pb-2 font-semibold">Mes réseaux :</p>
           <div className="flex justify-center space-x-4 sm:justify-start">
             <a
-              href="https://instagram.com"
+              href="https://www.instagram.com/patrick_gauvin_/"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Visitez mon Instagram"
@@ -36,7 +36,7 @@ const Footer = () => {
               <Image src={Insta} alt="Instagram" className="size-6" />
             </a>
             <a
-              href="https://facebook.com"
+              href="https://www.facebook.com/people/Patrick-Gauvin/pfbid02XQ1u1dXHwJjfxYinJt43p43FWguDw5NDUJaPXkigCk8akDUqFj9ett5kNKK3SUkCl/"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Visitez mon Facebook"

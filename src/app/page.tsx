@@ -110,7 +110,7 @@ export default function Home() {
         </div>
         {/* Ancien Positionnement en SB */}
         {/* <div className="absolute bottom-36 flex space-x-4 md:bottom-4 md:left-4 md:flex md:space-x-4 lg:bottom-4 lg:left-4 lg:flex lg:space-x-4"> */}
-        <div className="absolute bottom-32 flex space-x-5 md:bottom-7 md:right-7">
+        <div className="absolute bottom-10 flex space-x-5 md:bottom-7 md:right-7">
           <a href="#" target="_blank" rel="noopener noreferrer">
             <Image src={insta} alt="Instagram" className="size-7 md:size-8" />
           </a>
