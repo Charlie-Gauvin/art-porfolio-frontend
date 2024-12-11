@@ -111,10 +111,10 @@ export default function Home() {
         {/* Ancien Positionnement en SB */}
         {/* <div className="absolute bottom-36 flex space-x-4 md:bottom-4 md:left-4 md:flex md:space-x-4 lg:bottom-4 lg:left-4 lg:flex lg:space-x-4"> */}
         <div className="absolute bottom-10 flex space-x-5 md:bottom-7 md:right-7">
-          <a href="#" target="_blank" rel="noopener noreferrer">
+          <a href="https://www.instagram.com/patrick_gauvin_/" target="_blank" rel="noopener noreferrer">
             <Image src={insta} alt="Instagram" className="size-7 md:size-8" />
           </a>
-          <a href="#" target="_blank" rel="noopener noreferrer">
+          <a href="https://www.facebook.com/people/Patrick-Gauvin/pfbid02XQ1u1dXHwJjfxYinJt43p43FWguDw5NDUJaPXkigCk8akDUqFj9ett5kNKK3SUkCl/" target="_blank" rel="noopener noreferrer">
             <Image src={facebook} alt="Facebook" className="size-7 md:size-8" />
           </a>
         </div>
