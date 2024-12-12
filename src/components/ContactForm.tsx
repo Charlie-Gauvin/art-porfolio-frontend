@@ -1,9 +1,49 @@
+"use client";
+
+import { useState } from "react";
+
 export default function ContactForm() {
+
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [sujet, setSujet] = useState('');
+  const [message, setMessage] = useState('');
+  const [status, setStatus] = useState('');
+
+const handleSubmit = async (e: React.FormEvent) => {
+    
+  e.preventDefault();
+
+  try {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/api/contact`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ name, email, sujet, message }),
+    });
+
+    if (res.ok) {
+      setStatus('Email envoyé avec succès');
+      setName('');
+      setEmail('');
+      setSujet('');
+      setMessage('');
+    } else {
+      setStatus('Erreur lors de l\'envoi de l\'email');
+    }
+  } catch (error) {
+    console.error('Erreur lors de l\'envoi de l\'email', error);
+    setStatus('Erreur lors de l\'envoi de l\'email');
+  }
+};
+
   return (
     <section className="relative h-screen p-6 dark:text-gray-800">
       <form
         noValidate
         className="container mx-auto w-full max-w-xl space-y-6 rounded-md p-8 shadow-lg"
+        onSubmit={handleSubmit}
       >
         <div>
           <label htmlFor="name" className="mb-1 ml-1 block">
@@ -15,6 +55,8 @@ export default function ContactForm() {
             placeholder="Nom - Prénom"
             required
             className="block w-full rounded bg-background2 p-2"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
           />
         </div>
         <div>
@@ -26,7 +68,9 @@ export default function ContactForm() {
             type="email"
             placeholder="Email"
             required
-            className="block w-full rounded bg-background2   p-2"
+            className="block w-full rounded bg-background2 p-2"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
           />
         </div>
         <div>
@@ -38,7 +82,9 @@ export default function ContactForm() {
             type="sujet"
             placeholder="sujet"
             required
-            className="block w-full rounded bg-background2 p-2 "
+            className="block w-full rounded bg-background2 p-2"
+            value={sujet}
+            onChange={(e) => setSujet(e.target.value)}
           />
         </div>
         <div>
@@ -49,6 +95,8 @@ export default function ContactForm() {
             id="message"
             placeholder="Message..."
             className=" block w-full rounded bg-background2 p-2 "
+            value={message}
+            onChange={(e) => setMessage(e.target.value)}
           ></textarea>
         </div>
         <div>
@@ -58,6 +106,7 @@ export default function ContactForm() {
           >
             Send
           </button>
+          {status && <p className="mt-4 text-center">{status}</p>}
         </div>
       </form>
     </section>
