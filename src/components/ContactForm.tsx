@@ -39,7 +39,7 @@ const handleSubmit = async (e: React.FormEvent) => {
 };
 
   return (
-    <section className="relative h-screen p-6 dark:text-gray-800">
+    <section className="relative h-screen p-6 text-text3">
       <form
         noValidate
         className="container mx-auto w-full max-w-xl space-y-6 rounded-md p-8 shadow-lg"
