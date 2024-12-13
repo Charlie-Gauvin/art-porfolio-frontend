@@ -39,7 +39,7 @@ const handleSubmit = async (e: React.FormEvent) => {
 };
 
   return (
-    <section className="relative h-screen p-6 dark:text-gray-800">
+    <section className="relative h-screen p-6 text-text3">
       <form
         noValidate
         className="container mx-auto w-full max-w-xl space-y-6 rounded-md p-8 shadow-lg"
@@ -54,7 +54,7 @@ const handleSubmit = async (e: React.FormEvent) => {
             type="text"
             placeholder="Nom - Prénom"
             required
-            className="block w-full rounded bg-background2 p-2"
+            className="block w-full rounded p-2 text-text2"
             value={name}
             onChange={(e) => setName(e.target.value)}
           />
@@ -68,7 +68,7 @@ const handleSubmit = async (e: React.FormEvent) => {
             type="email"
             placeholder="Email"
             required
-            className="block w-full rounded bg-background2 p-2"
+            className="block w-full rounded p-2 text-text2"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
           />
@@ -82,7 +82,7 @@ const handleSubmit = async (e: React.FormEvent) => {
             type="sujet"
             placeholder="sujet"
             required
-            className="block w-full rounded bg-background2 p-2"
+            className="block w-full rounded p-2 text-text2"
             value={sujet}
             onChange={(e) => setSujet(e.target.value)}
           />
@@ -94,7 +94,7 @@ const handleSubmit = async (e: React.FormEvent) => {
           <textarea
             id="message"
             placeholder="Message..."
-            className=" block w-full rounded bg-background2 p-2 "
+            className=" block w-full rounded p-2 text-text2"
             value={message}
             onChange={(e) => setMessage(e.target.value)}
           ></textarea>

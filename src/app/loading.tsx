@@ -1,4 +1,4 @@
-import paint from '../../public/assets/26.svg';
+import paint from '../../public/assets/Loader/loader.svg';
 import Image from 'next/image';
 
 export default function Loading() {

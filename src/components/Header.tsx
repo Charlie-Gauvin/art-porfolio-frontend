@@ -5,7 +5,6 @@ import Image from "next/image";
 import Link from "next/link";
 import logo from "../../public/assets/logo.svg";
 import underline from "../../public/assets/Header/underline.svg";
-// import paint1 from "../../public/assets/hero/Splash1.svg";
 import React, { useState, useEffect, useRef } from "react";
 import { gsap } from "gsap";
 
@@ -89,7 +88,7 @@ export default function Header() {
         className="hidden font-antonio text-3xl font-semibold tracking-wide text-text1 md:block md:text-sm lg:text-lg xl:text-lg"
         aria-label="navigation"
       >
-        <ul className="flex sm:gap-8 lg:gap-12 ">
+        <ul className="flex sm:gap-8 lg:gap-12">
           <li>
             <Link
               href="/"

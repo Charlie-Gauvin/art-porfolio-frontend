@@ -18,7 +18,7 @@ const Footer = () => {
       {/* Copyright */}
       <div className="order-3 mb-4 text-center text-xs md:order-none md:mb-0 md:flex-1 md:text-center md:text-sm">
         <p>© 2024 Patrick Gauvin. All rights reserved.</p>
-        {/* <div className="mx-auto mt-3 hidden w-32 border-t md:mt-4 md:block"></div> */}
+        <div className="mx-auto mt-3 hidden w-32 border-t md:mt-4 md:block"></div>
       </div>
       {/* Contact et Réseaux Sociaux */}
       <div className="order-1 mb-6 flex gap-20 text-center text-xs sm:text-center md:order-none md:flex-col md:gap-0 md:text-sm">
