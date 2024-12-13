@@ -54,6 +54,7 @@ const handleSubmit = async (e: React.FormEvent) => {
             type="text"
             placeholder="Nom - Prénom"
             required
+            maxLength={50}
             className="block w-full rounded bg-background2 p-2"
             value={name}
             onChange={(e) => setName(e.target.value)}
@@ -68,6 +69,7 @@ const handleSubmit = async (e: React.FormEvent) => {
             type="email"
             placeholder="Email"
             required
+            maxLength={50}
             className="block w-full rounded bg-background2 p-2"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
@@ -82,6 +84,7 @@ const handleSubmit = async (e: React.FormEvent) => {
             type="sujet"
             placeholder="sujet"
             required
+            maxLength={100}
             className="block w-full rounded bg-background2 p-2"
             value={sujet}
             onChange={(e) => setSujet(e.target.value)}
@@ -94,7 +97,9 @@ const handleSubmit = async (e: React.FormEvent) => {
           <textarea
             id="message"
             placeholder="Message..."
-            className=" block w-full rounded bg-background2 p-2 "
+            className=" block w-full rounded bg-background2 p-2"
+            required
+            maxLength={500}
             value={message}
             onChange={(e) => setMessage(e.target.value)}
           ></textarea>
