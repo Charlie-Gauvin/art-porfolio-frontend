@@ -15,7 +15,7 @@ export default function About() {
       try {
         const response = await fetch(
           `${process.env.NEXT_PUBLIC_API_BASE_URL}/api/about?populate=*`
-        );
+        );  
         const data = await response.json();
         setAbout(data.data);
       } catch (error) {
