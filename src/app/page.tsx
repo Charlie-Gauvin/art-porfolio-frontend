@@ -10,9 +10,6 @@ import graffiti from "../../public/assets/hero/graffiti.svg";
 import insta from "../../public/assets/hero/instagram.svg";
 import facebook from "../../public/assets//hero/facebook.svg";
 
-// import paint1 from "../../public/assets/hero/Splash1.svg";
-// import paint2 from "../../public/assets/hero/Splash2.svg";
-
 export default function Home() {
   const paint1Ref = useRef<HTMLImageElement>(null);
   const paint2Ref = useRef<HTMLImageElement>(null);
