@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useState, useMemo, useRef } from "react";
+import { useEffect, useState, useMemo } from "react";
 import { Exhibitions, ExhibitionsCardProps } from "../types/types";
 
 export default function ExhibitionsCard({ isUpcoming }: ExhibitionsCardProps) {
@@ -67,7 +67,7 @@ export default function ExhibitionsCard({ isUpcoming }: ExhibitionsCardProps) {
             rel="noopener noreferrer"
             href={exhibition.Redirection_Link}
             target="_blank"
-            className="group mx-auto block max-w-sm gap-3 hover:no-underline focus:no-underline sm:max-w-full lg:grid lg:grid-cols-12"
+            className="group mx-auto block max-w-sm cursor-pointer gap-3 hover:no-underline focus:no-underline sm:max-w-full lg:grid lg:grid-cols-12"
           >
             <Image
               src={`http://localhost:1337${exhibition.Image.url}`}
@@ -102,7 +102,7 @@ export default function ExhibitionsCard({ isUpcoming }: ExhibitionsCardProps) {
               rel="noopener noreferrer"
               href={exhibition.Redirection_Link}
               target="_blank"
-              className="group mx-auto max-w-sm hover:no-underline focus:no-underline "
+              className="group mx-auto max-w-sm cursor-pointer hover:no-underline focus:no-underline"
             >
               <Image
                 role="presentation"

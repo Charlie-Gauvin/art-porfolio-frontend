@@ -26,7 +26,7 @@ export default function ContactForm() {
             type="email"
             placeholder="Email"
             required
-            className="block w-full rounded bg-background2   p-2"
+            className="block w-full rounded bg-background2 p-2"
           />
         </div>
         <div>
