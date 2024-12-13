@@ -6,6 +6,8 @@ import { Exhibitions, ExhibitionsCardProps } from "../types/types";
 
 export default function ExhibitionsCard({ isUpcoming }: ExhibitionsCardProps) {
   const [exhibitions, setExhibitions] = useState<Exhibitions[]>([]);
+  const [isLightboxOpen, setIsLightboxOpen] = useState<boolean>(false);
+    const [selectedImage, setSelectedImage] = useState<string>("");
 
   // Fecth Strapi pour récupérer les expositions
   useEffect(() => {
@@ -47,6 +49,17 @@ export default function ExhibitionsCard({ isUpcoming }: ExhibitionsCardProps) {
     (exhibition) => exhibition.format === "petit"
   );
 
+
+  const openLightbox = (imageUrl: string) => {
+    setSelectedImage(imageUrl);
+    setIsLightboxOpen(true);
+  };
+
+  const closeLightbox = () => {
+    setIsLightboxOpen(false);
+    setSelectedImage("");
+  };
+
   return (
     <section className="bg-background1 text-text1">
       <div className="container mx-auto max-w-6xl space-y-6 p-6 sm:space-y-12">
@@ -56,14 +69,18 @@ export default function ExhibitionsCard({ isUpcoming }: ExhibitionsCardProps) {
             rel="noopener noreferrer"
             href={exhibition.Redirection_Link}
             target="_blank"
-            className="group mx-auto block max-w-sm gap-3 hover:no-underline focus:no-underline sm:max-w-full lg:grid lg:grid-cols-12"
+            className="group mx-auto block max-w-sm cursor-pointer gap-3 hover:no-underline focus:no-underline sm:max-w-full lg:grid lg:grid-cols-12"
           >
             <Image
               src={`${process.env.NEXT_PUBLIC_API_BASE_URL}${exhibition.Image.url}`}
               width={exhibition.Image.width}
               height={exhibition.Image.height}
-              alt=""
+              alt="Grande affiche d'exposition"
               className="h-64 w-full rounded object-cover sm:h-96 lg:col-span-7"
+              onClick={(e) => {
+                e.preventDefault();
+                openLightbox(`${process.env.NEXT_PUBLIC_API_BASE_URL}${exhibition.Image.url}`);
+              }}
             />
             <div className="space-y-2 p-6 lg:col-span-5">
               <h3 className="text-2xl font-semibold group-hover:underline group-focus:underline sm:text-4xl">
@@ -87,7 +104,7 @@ export default function ExhibitionsCard({ isUpcoming }: ExhibitionsCardProps) {
               rel="noopener noreferrer"
               href={exhibition.Redirection_Link}
               target="_blank"
-              className="group mx-auto max-w-sm hover:no-underline focus:no-underline "
+              className="group mx-auto max-w-sm cursor-pointer hover:no-underline focus:no-underline"
             >
               <Image
                 role="presentation"
@@ -95,7 +112,11 @@ export default function ExhibitionsCard({ isUpcoming }: ExhibitionsCardProps) {
                 src={`${process.env.NEXT_PUBLIC_API_BASE_URL}${exhibition.Image.url}`}
                 width={exhibition.Image.width}
                 height={exhibition.Image.height}
-                alt="tableau"
+                alt="Petite affiche d'exposition"
+                onClick={(e) => {
+                  e.preventDefault();
+                  openLightbox(`${process.env.NEXT_PUBLIC_API_BASE_URL}${exhibition.Image.url}`);
+                }}
               />
               <div className="space-y-2 p-6">
                 <h3 className="text-2xl font-semibold group-hover:underline group-focus:underline">
@@ -113,6 +134,47 @@ export default function ExhibitionsCard({ isUpcoming }: ExhibitionsCardProps) {
           ))}
         </div>
       </div>
+      {/* Lightbox / Overlay */}
+      {isLightboxOpen && (
+        <div>
+          {/* Overlay sombre pour masquer l'arrière-plan */}
+          <div
+            className="fixed inset-0 z-40 bg-black/90"
+            onClick={closeLightbox}
+            aria-hidden="true"
+          ></div>
+          {/* Conteneur de la Lightbox */}
+          <div
+            className="fixed inset-0 z-50 flex items-center justify-center pt-20"
+            role="dialog"
+            aria-modal="true"
+            onClick={closeLightbox}
+          >
+            {/* Bouton de fermeture de la Lightbox */}
+            <button
+              onClick={closeLightbox}
+              className="absolute right-4 top-[110px] text-5xl text-white transition-colors hover:text-text3  "
+              aria-label="Fermer la Lightbox"
+            >
+              &times;
+            </button>
+            <div
+              className="relative w-11/12 max-w-4xl overflow-hidden rounded-lg"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <Image
+                src={selectedImage}
+                alt="Artwork enlarged"
+                layout="responsive"
+                width={800}
+                height={600}
+                className="max-h-[70vh] rounded-lg object-contain"
+                onClick={(e) => e.stopPropagation()}
+              />
+            </div>
+          </div>
+        </div>
+      )}
     </section>
   );
 }
