@@ -1,6 +1,6 @@
 # 🎨 Galerie D'art en ligne
 
-Ce projet est une plateforme de galerie d'art en ligne créée dans le cadre d'un travail en duo. Le site permet au client de présenter ses œuvres, de gérer ses expositions à venir et passées. L'ensemble du projet a été développé en utilisant Next.js, Strapi, Tailwind CSS.
+Ce projet est une plateforme de galerie d'art en ligne créée dans le cadre d'un travail en duo. Le site permet à l'artiste peintre de présenter ses œuvres, de gérer ses expositions à venir et passées. L'ensemble du projet a été développé en utilisant Next.js, Strapi, Tailwind CSS.
 
 ## 📋 Description du projet
 
