@@ -81,7 +81,7 @@ export default function Home() {
             <div className="flex items-center text-xs md:text-sm lg:text-lg">
               <h1 className="whitespace-nowrap">Patrick Gauvin</h1>
               <div className="mx-2 w-9 border-t border-text1 md:w-14 md:border-t-2"></div>
-              <p className="whitespace-nowrap">Gallerie</p>
+              <p className="whitespace-nowrap">Galerie</p>
             </div>
             <h2 className="mt-4 text-left text-4xl md:text-5xl lg:text-7xl">
               <span>AU FIL DE l&apos;EAU</span>

@@ -81,7 +81,7 @@ export default function Burger() {
             </li>
             <li>
               <button onClick={handleGallery} aria-expanded={isGalleryOpen}>
-                Gallerie
+                Galerie
               </button>
               {isGalleryOpen && (
                 <ul
